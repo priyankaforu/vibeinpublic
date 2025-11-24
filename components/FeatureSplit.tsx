@@ -10,7 +10,7 @@ interface FeatureSplitProps {
 
 export const FeatureSplit: React.FC<FeatureSplitProps> = ({ title, description, badge, imageComponent, reversed = false }) => {
   return (
-    <section className="py-24 px-4 md:px-16">
+    <section className="py-32 px-6 md:px-12 lg:px-24">
       <div className={`max-w-7xl mx-auto flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-16`}>
         
         <div className="flex-1 space-y-6">

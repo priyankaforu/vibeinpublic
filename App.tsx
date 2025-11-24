@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ValuesSection } from './components/ValuesSection';
 import { FeatureSplit } from './components/FeatureSplit';
 import { VibeCheck } from './components/VibeCheck';
 import { Footer } from './components/Footer';
+import { BlogPage } from './components/BlogPage';
 
 // Mock Component for Feature 1 (Members List)
 const MembersMock = () => (
@@ -55,10 +56,16 @@ const CodeMock = () => (
 );
 
 function App() {
+  const [showBlog, setShowBlog] = useState(false);
+
+  if (showBlog) {
+    return <BlogPage onBack={() => setShowBlog(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-cream overflow-x-hidden">
-      <Navbar />
-      <Hero />
+      <Navbar onManifestoClick={() => setShowBlog(true)} />
+      <Hero onManifestoClick={() => setShowBlog(true)} />
       <ValuesSection />
       
       <FeatureSplit
@@ -77,7 +84,7 @@ function App() {
       />
 
       {/* Vibe Check Section */}
-      <section className="py-24 px-4 bg-gray-50 border-y border-black">
+      <section className="py-32 px-6 md:px-12 lg:px-24 bg-gray-50 border-y border-black">
         <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-serif text-4xl font-bold mb-12">Low energy? Get a Vibe Check.</h2>
             <VibeCheck />
